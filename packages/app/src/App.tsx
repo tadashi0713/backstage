@@ -18,6 +18,7 @@ import {
   AlertDisplay,
   createApp,
   createRouteRef,
+  LocalStorageFeatureFlags,
   FlatRoutes,
   OAuthRequestDialog,
   SignInPage,
@@ -37,6 +38,7 @@ import { Navigate, Route } from 'react-router';
 import { apis } from './apis';
 import { EntityPage } from './components/catalog/EntityPage';
 import Root from './components/Root';
+import { SearchPage } from './components/search/SearchPage';
 import { providers } from './identityProviders';
 import * as plugins from './plugins';
 import AlarmIcon from '@material-ui/icons/Alarm';
@@ -65,7 +67,7 @@ const app = createApp({
 const AppProvider = app.getProvider();
 const AppRouter = app.getRouter();
 const deprecatedAppRoutes = app.getRoutes();
-
+const featureFlags = new LocalStorageFeatureFlags();
 const catalogRouteRef = createRouteRef({
   path: '/catalog',
   title: 'Service Catalog',
@@ -79,6 +81,9 @@ const routes = (
       path={`${catalogRouteRef.path}`}
       element={<CatalogRouter EntityPage={EntityPage} />}
     />
+    {featureFlags.isActive('use-search-platform') && (
+      <Route path="/search" element={<SearchPage />} />
+    )}
     <Route path="/docs" element={<DocsRouter />} />
     <Route path="/explore" element={<ExplorePage />} />
     <Route
