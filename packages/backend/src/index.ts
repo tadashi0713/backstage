@@ -42,6 +42,7 @@ import kafka from './plugins/kafka';
 import rollbar from './plugins/rollbar';
 import scaffolder from './plugins/scaffolder';
 import proxy from './plugins/proxy';
+import search from './plugins/search';
 import techdocs from './plugins/techdocs';
 import graphql from './plugins/graphql';
 import app from './plugins/app';
@@ -76,6 +77,7 @@ async function main() {
   const authEnv = useHotMemoize(module, () => createEnv('auth'));
   const proxyEnv = useHotMemoize(module, () => createEnv('proxy'));
   const rollbarEnv = useHotMemoize(module, () => createEnv('rollbar'));
+  const searchEnv = useHotMemoize(module, () => createEnv('search'));
   const techdocsEnv = useHotMemoize(module, () => createEnv('techdocs'));
   const kubernetesEnv = useHotMemoize(module, () => createEnv('kubernetes'));
   const kafkaEnv = useHotMemoize(module, () => createEnv('kafka'));
@@ -87,6 +89,7 @@ async function main() {
   apiRouter.use('/rollbar', await rollbar(rollbarEnv));
   apiRouter.use('/scaffolder', await scaffolder(scaffolderEnv));
   apiRouter.use('/auth', await auth(authEnv));
+  apiRouter.use('/search', await search(searchEnv));
   apiRouter.use('/techdocs', await techdocs(techdocsEnv));
   apiRouter.use('/kubernetes', await kubernetes(kubernetesEnv));
   apiRouter.use('/kafka', await kafka(kafkaEnv));
