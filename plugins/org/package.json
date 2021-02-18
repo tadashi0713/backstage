@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@backstage/catalog-model": "^0.7.1",
-    "@backstage/core": "^0.6.2",
+    "@backstage/core": "^0.6.3",
     "@backstage/core-api": "^0.2.10",
     "@backstage/plugin-catalog-react": "^0.0.4",
     "@backstage/theme": "^0.2.3",

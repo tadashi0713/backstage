@@ -33,7 +33,7 @@
   "dependencies": {
     "@backstage/config": "^0.1.2",
     "@backstage/catalog-model": "^0.7.1",
-    "@backstage/core": "^0.6.2",
+    "@backstage/core": "^0.6.3",
     "@backstage/plugin-catalog-react": "^0.0.4",
     "@backstage/test-utils": "^0.1.7",
     "@backstage/theme": "^0.2.3",

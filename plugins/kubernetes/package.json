@@ -34,7 +34,7 @@
     "@backstage/catalog-model": "^0.7.1",
     "@backstage/plugin-catalog-react": "^0.0.4",
     "@backstage/config": "^0.1.2",
-    "@backstage/core": "^0.6.2",
+    "@backstage/core": "^0.6.3",
     "@backstage/plugin-kubernetes-backend": "^0.2.6",
     "@backstage/theme": "^0.2.3",
     "@kubernetes/client-node": "^0.13.2",
