@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1beta1
+kind: Template
+metadata:
+  name: test-template-v2
+  title: Test Template v2
+  description: Testing out the new template schema
+spec:
+  owner: backstage/techdocs-core
+  type: service
+
+  form:
+    name:
+      "ui:autofocus": true
+
+  parameters:
+    required:
+      - name
+    properties:
+      fieldName:
+        title: Name
+        type: string
+        description: Unique name of the component
+        ui:widget: textarea
+        ui:options:
+          rows: 5
+      storePath: # provides {owner, repository, providerUrl}
+        $ref: '#/definitions/StorePath'
+
+
+
+
+  steps:
+    - id: derp
+      input:
+        derp: $.parameters.storePath.owner
